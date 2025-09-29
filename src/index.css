@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Saksham Digital Learning Platform Design System
+   Professional education-focused theme with multilingual support
+   Optimized for rural education and low-end devices
+*/
+
+@layer base {
+  :root {
+    /* Education-focused color palette */
+    --background: 210 15% 97%;
+    --foreground: 215 25% 15%;
+    
+    /* Primary - Education Blue */
+    --primary: 210 85% 45%;
+    --primary-light: 210 85% 55%;
+    --primary-dark: 210 85% 35%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Learning Green */
+    --secondary: 142 65% 45%;
+    --secondary-light: 142 65% 55%;
+    --secondary-dark: 142 65% 35%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Education semantic colors */
+    --success: 142 71% 45%;
+    --warning: 38 92% 58%;
+    --danger: 0 84% 60%;
+    --info: 210 85% 55%;
+    
+    /* Surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    
+    /* Muted surfaces */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+    
+    /* Accent colors */
+    --accent: 210 15% 95%;
+    --accent-foreground: 215 25% 15%;
+    
+    /* Interactive elements */
+    --border: 210 15% 85%;
+    --input: 210 15% 90%;
+    --ring: 210 85% 45%;
+    
+    /* Educational gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 85% 45%), hsl(210 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(142 65% 45%), hsl(142 65% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 85% 45%), hsl(142 65% 45%));
+    --gradient-learning: linear-gradient(180deg, hsl(210 15% 97%), hsl(210 15% 95%));
+    
+    /* Shadows for depth */
+    --shadow-soft: 0 2px 8px hsl(215 25% 15% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(215 25% 15% / 0.12);
+    --shadow-strong: 0 8px 32px hsl(215 25% 15% / 0.16);
+    --shadow-glow: 0 0 20px hsl(210 85% 45% / 0.3);
+    
+    /* Education-specific colors */
+    --teacher: 210 85% 45%;
+    --student: 142 65% 45%;
+    --parent: 38 92% 58%;
+    --progress-bg: 210 15% 90%;
+    --progress-fill: 142 65% 45%;
+    
+    /* Performance indicators */
+    --performance-excellent: 142 71% 45%;
+    --performance-good: 60 85% 55%;
+    --performance-average: 38 92% 58%;
+    --performance-needs-help: 0 84% 60%;
+    
+    /* Gamification colors */
+    --xp-bronze: 30 85% 55%;
+    --xp-silver: 220 15% 70%;
+    --xp-gold: 45 90% 55%;
+    --xp-diamond: 210 85% 65%;
+    
+    --radius: 0.75rem;
+    
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-quick: all 0.15s ease-out;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode for low-light rural settings */
+    --background: 215 25% 8%;
+    --foreground: 210 15% 92%;
+    
+    --card: 215 25% 10%;
+    --card-foreground: 210 15% 92%;
+    
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 15% 92%;
+    
+    --primary: 210 85% 55%;
+    --primary-foreground: 215 25% 8%;
+    
+    --secondary: 142 65% 55%;
+    --secondary-foreground: 215 25% 8%;
+    
+    --muted: 215 25% 15%;
+    --muted-foreground: 210 15% 65%;
+    
+    --accent: 215 25% 15%;
+    --accent-foreground: 210 15% 92%;
+    
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 215 25% 8%;
+    
+    --border: 215 25% 20%;
+    --input: 215 25% 15%;
+    --ring: 210 85% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Education-focused typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  h1 { @apply text-3xl lg:text-4xl; }
+  h2 { @apply text-2xl lg:text-3xl; }
+  h3 { @apply text-xl lg:text-2xl; }
+  h4 { @apply text-lg lg:text-xl; }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Educational component patterns */
+  .dashboard-card {
+    @apply bg-card rounded-xl border shadow-soft p-6 transition-all duration-200 hover:shadow-medium;
+  }
+  
+  .stat-card {
+    @apply dashboard-card bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20;
+  }
+  
+  .progress-ring {
+    @apply relative inline-block;
+    transform: rotate(-90deg);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground hover:from-primary-dark hover:to-primary shadow-soft hover:shadow-medium transition-all;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-light text-secondary-foreground hover:from-secondary-dark hover:to-secondary shadow-soft hover:shadow-medium transition-all;
+  }
+  
+  .learning-card {
+    @apply bg-card rounded-xl border p-4 hover:border-primary/30 transition-all hover:shadow-soft cursor-pointer;
+  }
+  
+  /* Performance indicators */
+  .performance-excellent { @apply text-performance-excellent bg-performance-excellent/10; }
+  .performance-good { @apply text-[hsl(var(--performance-good))] bg-[hsl(var(--performance-good))]/10; }
+  .performance-average { @apply text-[hsl(var(--performance-average))] bg-[hsl(var(--performance-average))]/10; }
+  .performance-needs-help { @apply text-performance-needs-help bg-performance-needs-help/10; }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  
+  /* Gradient utilities */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  /* Shadow utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
